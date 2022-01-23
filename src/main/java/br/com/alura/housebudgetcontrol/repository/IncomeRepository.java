@@ -1,6 +1,7 @@
 package br.com.alura.housebudgetcontrol.repository;
 
-import org.springframework.data.mongodb.repository.MongoRepository;
+import br.com.alura.housebudgetcontrol.entity.Income;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface IncomeRepository extends MongoRepository {
+public interface IncomeRepository extends JpaRepository<Income, Long> {
 }

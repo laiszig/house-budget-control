@@ -1,11 +1,14 @@
 package br.com.alura.housebudgetcontrol.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
+import lombok.*;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.time.LocalDate;
+
+@Entity
 @Data
 @Builder
 @AllArgsConstructor
@@ -13,8 +16,18 @@ import org.springframework.data.annotation.Id;
 public class Income {
 
     @Id
-    public String IncomeID;
-    public String IncomeDescription;
-    public String IncomeAmount;
-    public String IncomeDate;
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String description;
+
+    private Double amount;
+
+    private LocalDate date;
+
+    public Income(String description, Double amount, LocalDate date) {
+        this.description = description;
+        this.amount = amount;
+        this.date = date;
+    }
 }
